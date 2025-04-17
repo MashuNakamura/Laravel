@@ -45,11 +45,13 @@ class MakananController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-        Makanan::create([
-            'nama_makanan' => $request->nama_makanan,
-            'harga_makanan' => $request->harga_makanan,
-            'rating_makanan' => $request->rating_makanan,
+        $validated = $request->validate([
+            'nama_makanan' => 'required|string|max:255',
+            'harga_makanan' => 'required|numeric|min:0',
+            'rating_makanan' => 'nullable|numeric|min:1|max:5'
         ]);
+        
+        Makanan::create($validated);
 
         return redirect()->route('makanan.index')->with('success', 'Data berhasil ditambahkan');
     }
@@ -59,11 +61,14 @@ class MakananController extends Controller
     public function update(Request $request, Makanan $makanan): RedirectResponse
     {
 
-        $makanan->update([
-            'nama_makanan' => $request->nama_makanan,
-            'harga_makanan' => $request->harga_makanan,
-            'rating_makanan' => $request->rating_makanan,
+
+        $validated = $request->validate([
+            'nama_makanan' => 'required|string|max:255',
+            'harga_makanan' => 'required|numeric|min:0',
+            'rating_makanan' => 'nullable|numeric|min:1|max:5'
         ]);
+        
+        $makanan->update($validated);
 
         return redirect()->route('makanan.index')->with('success', 'Data berhasil diupdate');
     }

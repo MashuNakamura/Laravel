@@ -86,7 +86,6 @@
                     <th>#</th>
                     <th>Nama Makanan</th>
                     <th>Harga</th>
-                    <th>Tanggal Dibuat</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -96,7 +95,6 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $makanan->nama_makanan }}</td>
                         <td>{{ $makanan->harga_makanan }}</td>
-                        <td>{{ $makanan->created_at->format('d-m-Y H:i:s') }}</td> 
                         <td>
                             <form action="{{ route('makanan.show', $makanan->id) }}" method="GET" class="d-inline">
                                 <button type="submit" class="btn-info">Detail</button>
