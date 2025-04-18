@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
-class MakananController extends Controller  
+class MakananController extends Controller
 {
-
     // Untuk menampilkan sebuah resource sebanyak 10 data per halaman
 
     public function index(): View
@@ -19,7 +18,6 @@ class MakananController extends Controller
     }
 
     // Menggunakan method create() untuk menampilkan form
-
 
     public function create(): View
     {
@@ -44,13 +42,12 @@ class MakananController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-
         $validated = $request->validate([
             'nama_makanan' => 'required|string|max:255',
             'harga_makanan' => 'required|numeric|min:0',
-            'rating_makanan' => 'nullable|numeric|min:1|max:5'
+            'rating_makanan' => 'nullable|numeric|min:1|max:5',
         ]);
-        
+
         Makanan::create($validated);
 
         return redirect()->route('makanan.index')->with('success', 'Data berhasil ditambahkan');
@@ -60,14 +57,12 @@ class MakananController extends Controller
 
     public function update(Request $request, Makanan $makanan): RedirectResponse
     {
-
-
         $validated = $request->validate([
             'nama_makanan' => 'required|string|max:255',
             'harga_makanan' => 'required|numeric|min:0',
-            'rating_makanan' => 'nullable|numeric|min:1|max:5'
+            'rating_makanan' => 'nullable|numeric|min:1|max:5',
         ]);
-        
+
         $makanan->update($validated);
 
         return redirect()->route('makanan.index')->with('success', 'Data berhasil diupdate');
