@@ -6,15 +6,15 @@ Version : 12
 
 ### To use Laravel
 
-*Don't forget to:*
+***Don't forget to:***
 
-- `npm install`: untuk download semua dependensi yang dibutuhkan agar project bisa jalan.
-- `npm run build`: untuk menyusun project agar siap dipakai.
+- `npm install` untuk download semua dependensi yang dibutuhkan agar project bisa jalan.
+- `npm run build` untuk menyusun project agar siap dipakai.
 
-*Run dengan:*
+***Run dengan:***
 
-- `php artisan serve`: untuk menjalankan server Laravel.
+- `php artisan serve` untuk menjalankan server Laravel.
   
 Atau
 
-- `composer run dev`: untuk menjalankan server jika ada script `dev` di `composer.json`.
+- `composer run dev` untuk menjalankan server jika ada script `dev` di `composer.json`.
